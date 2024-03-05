@@ -123,4 +123,3 @@ Returns a list of stocks filtered by the specified date range.
     },
 
 ]
-
