@@ -2,28 +2,29 @@
 
 This Django REST application serves as a stock management system, providing APIs to interact with stock data. It utilizes Django Rest Framework for building APIs to manage the stocks.
 
-## Features
+## Features:
 
 - **APIs for Stock Management**: This application offers the following APIs:
   - `/list-stocks/`: Returns a list of all available stocks.
   - `/list-stocks-by-status/`: Returns a list of stocks filtered by the specified status (e.g., "In Stock", "Out of Stock", "Low Stock").
   - `/list-stocks-by-date-range/`: Returns a list of stocks filtered by the specified date range.
 
-- **Data Modelling**: The application has a `Stocks` data-model and it uses the SQLite3 database for data storage and retrieval.
+- **Database**: The application has a `Stocks` data-model and it uses the SQLite3 database for data storage and retrieval.
 
-- **Token-based Authentication**: Authentication is implemented using token-based authentication, providing secure access to the APIs. Only users with valid tokens can access the endpoints.
+- **Authentication**: Authentication is implemented using token-based authentication, providing secure access to the APIs. Only users with valid tokens can access the endpoints.
 
-- **Unit Tests**: Unit tests are added to validate the functionality of each API endpoint, ensuring proper handling of requests and responses.
+- **API Testing**: Unit tests are added to validate the functionality of each API endpoint, ensuring proper handling of requests and responses.
 
 # API Specification
 
-## List Stocks Endpoint
+## List Stocks Endpoint:
 
+### Description: Returns a list of all stocks available.
+
+### Request:
 - **URL**: `/list-stocks/`
 - **HTTP Method**: GET
 - **Authentication**: Token authentication required
-- **Permissions**: Only admin users can access this view
-- **Description**: Returns a list of all stocks available.
 
 ### Response:
 - **Status Code**: 200 OK
@@ -50,17 +51,15 @@ This Django REST application serves as a stock management system, providing APIs
 ]
 ```
 
-## List Stocks by Status Endpoint
+## List Stocks by Status Endpoint:
 
+### Description: Returns a list of stocks filtered by the specified status.
+
+### Request:
 - **URL:** `/list-stocks-by-status/?stock_status={status}`
 - **HTTP Method:** GET
 - **Authentication:** Token authentication required
-- **Permissions:** Only admin users can access this view
-
-### Description:
-Returns a list of stocks filtered by the specified status.
-
-### Query Parameters:
+- **Query Parameters:**
 - `stock_status` (required): The status of stocks to filter by. Possible values: "In Stock", "Out of Stock", "Low Stock", etc.
 
 ### Response:
@@ -87,17 +86,15 @@ Returns a list of stocks filtered by the specified status.
 ]
 ```
 
-## List Stocks by Date Range Endpoint
+## List Stocks by Date Range Endpoint:
 
+### Description: Returns a list of stocks filtered by the specified date range.
+
+### Request:
 - **URL**: `/list-stocks-by-date-range/?start_date={start_date}&end_date={end_date}`
 - **HTTP Method**: GET
 - **Authentication**: Token authentication required
-- **Permissions**: Only admin users can access this view
-
-### Description:
-Returns a list of stocks filtered by the specified date range.
-
-### Query Parameters:
+- **Query Parameters:**
 - `start_date` (required): The start date of the date range in YYYY-MM-DD format.
 - `end_date` (required): The end date of the date range in YYYY-MM-DD format.
 
